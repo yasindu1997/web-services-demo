@@ -1,4 +1,4 @@
-package lk.ijse.wsdemo;
+package lk.ijse.wsdemo.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
