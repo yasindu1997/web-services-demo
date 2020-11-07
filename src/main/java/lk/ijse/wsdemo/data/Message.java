@@ -1,8 +1,16 @@
 package lk.ijse.wsdemo.data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String sender;
     private String message;
     private Date sentDate;
@@ -29,5 +37,13 @@ public class Message {
 
     public void setSentDate(Date sentDate) {
         this.sentDate = sentDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
