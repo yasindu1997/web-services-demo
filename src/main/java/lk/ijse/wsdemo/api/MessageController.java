@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping(path = "/message")
 public class MessageController {
     @Autowired
-    MessageRepo messageRepo;
+    private MessageRepo messageRepo;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveMsg(@RequestBody Message message) {
@@ -28,11 +27,11 @@ public class MessageController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Message> getAllMsgs() {
+    public ResponseEntity<Object> getAllMsgs() {
         ArrayList<Message> all = new ArrayList<>();
         for (Message m : messageRepo.findAll()) {
             all.add(m);
         }
-        return all;
+        return new ResponseEntity<Object>(all, HttpStatus.OK);
     }
 }
