@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping(path = "/message")
+@RequestMapping(path = "/api/message")
 public class MessageController {
     @Autowired
     private MessageRepo messageRepo;
